@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="content" method="upgrade">
+    <name>plg_content_phpinclude</name>
+    <author>Henrik Damerau</author>
+    <creationDate>2026-09-01</creationDate>
+    <version>1.2.0</version>
+    <description>Securely include whitelisted PHP files in Joomla articles and Custom HTML modules.</description>
+
+    <files>
+        <filename plugin="phpinclude">phpinclude.php</filename>
+    </files>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="allowed_files"
+                    type="textarea"
+                    label="Allowed PHP files"
+                    description="One file per line. File names only; no directory path."
+                    rows="12"
+                    filter="raw"
+                />
+                <field
+                    name="include_directory"
+                    type="text"
+                    label="Include directory"
+                    description="Directory relative to the Joomla root, for example includes/php. Leave empty to use the Joomla root."
+                    default=""
+                    filter="raw"
+                />
+                <field
+                    name="allowed_modules"
+                    type="textarea"
+                    label="Allowed Custom HTML module IDs"
+                    description="One module ID per line. Only these Custom HTML modules can use PHP include tags."
+                    rows="6"
+                    filter="raw"
+                />
+                <field
+                    name="keyword"
+                    type="text"
+                    label="Keyword"
+                    description="The keyword used to include a file. For example, &quot;phpinclude&quot; produces {phpinclude:filename.php}. The colon is fixed."
+                    default="phpinclude"
+                    filter="raw"
+                />
+                <field
+                    name="show_errors"
+                    type="radio"
+                    label="Show error messages"
+                    description="Show an error in content when a file is missing or not whitelisted, instead of a hidden HTML comment."
+                    default="0"
+                    layout="joomla.form.field.radio.switcher"
+                >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
