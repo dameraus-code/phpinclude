@@ -10,10 +10,9 @@ A Joomla content plugin that replaces include tags with the output of explicitly
 
 ## Installation
 
-1. Create a ZIP archive containing `phpinclude.php` and `phpinclude.xml` at the archive root.
-2. In Joomla Administrator, go to **System > Install > Extensions** and upload the archive.
-3. Go to **System > Manage > Plugins**, open **Content - PHP Include**, and enable it.
-4. Configure the plugin settings described below.
+1. In Joomla Administrator, go to **System > Install > Extensions** and upload the archive.
+2. Go to **System > Manage > Plugins**, open **Content - PHP Include**, and enable it.
+3. Configure the plugin settings described below.
 
 ## Configuration
 
