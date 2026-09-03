@@ -3,6 +3,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\User\UserFactoryInterface;
 
 class PlgContentPhpinclude extends CMSPlugin
 {
@@ -103,7 +104,7 @@ class PlgContentPhpinclude extends CMSPlugin
                     return $this->renderMessage(
                         $showErrors,
                         'PHP include blocked',
-                        'Filen "' . $filename . '" finns inte i whitelistan.'
+                        'The file "' . $filename . '" is not in the allowlist.'
                     );
                 }
 
@@ -119,7 +120,7 @@ class PlgContentPhpinclude extends CMSPlugin
                     return $this->renderMessage(
                         $showErrors,
                         'PHP include rejected',
-                        'Filen "' . $filename . '" saknas.'
+                        'The file "' . $filename . '" is missing.'
                     );
                 }
 
@@ -141,7 +142,7 @@ class PlgContentPhpinclude extends CMSPlugin
                     return $this->renderMessage(
                         $showErrors,
                         'PHP include error',
-                        'Filen "' . $filename . '" gick inte att köra.'
+                        'The file "' . $filename . '" could not be executed.'
                     );
                 }
             },
@@ -172,7 +173,11 @@ class PlgContentPhpinclude extends CMSPlugin
             return false;
         }
 
-        return Factory::getUser($userId)->authorise('core.admin');
+        $user = Factory::getContainer()
+            ->get(UserFactoryInterface::class)
+            ->loadUserById($userId);
+
+        return $user->authorise('core.admin');
     }
 
     /**
