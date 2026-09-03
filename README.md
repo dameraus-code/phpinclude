@@ -4,7 +4,7 @@ A Joomla content plugin that replaces include tags with the output of explicitly
 
 ## Requirements
 
-- Joomla 5
+- Joomla 5 or 6
 - PHP files located in a directory under the Joomla root
 - A Super User account to create articles that use include tags
 
