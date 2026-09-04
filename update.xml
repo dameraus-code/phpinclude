@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<updates>
+    <update>
+        <name>PHP Include</name>
+        <description>PHP Include plugin for Joomla</description>
+        <element>phpinclude</element>
+        <type>plugin</type>
+        <folder>content</folder>
+        <version>1.3.2</version>
+
+        <downloads>
+            <downloadurl type="full" format="zip">
+                https://github.com/dameraus-code/phpinclude/releases/download/v1.3.2/phpinclude.zip
+            </downloadurl>
+        </downloads>
+
+        <targetplatform name="joomla" version="5\.[0-9]+|6\.[0-9]+"/>
+    </update>
+</updates>
