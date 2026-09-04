@@ -1,4 +1,13 @@
 <?php
+/**
+ * @package     Joomla.Plugin
+ * @subpackage  Content.Phpinclude
+ *
+ * @copyright   Copyright (C) 2026 Henrik Damerau. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
+ * @link        https://www.gnu.org/licenses/gpl-3.0.html
+ */
+
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
@@ -75,7 +84,8 @@ class PlgContentPhpinclude extends CMSPlugin
             return $content;
         }
 
-        $keyword = trim((string) $this->params->get('keyword', 'phpinclude'), ": \t\n\r\0\x0B");
+        // Trimma bort kolon och vanliga blanksteg/kontrolltecken.
+        $keyword = trim((string) $this->params->get('keyword', 'phpinclude'), ": \t\n\r ");
 
         if ($keyword === '') {
             $keyword = 'phpinclude';
@@ -247,7 +257,8 @@ class PlgContentPhpinclude extends CMSPlugin
     private function getIncludeDirectory()
     {
         $root = realpath(JPATH_ROOT);
-        $value = trim((string) $this->params->get('include_directory', ''), " /\\\t\n\r\0\x0B");
+        // Trimma bort blanksteg, snedsteg och vanliga kontrolltecken.
+        $value = trim((string) $this->params->get('include_directory', ''), " /\\\t\n\r");
 
         if ($root === false) {
             return false;
